@@ -1,0 +1,113 @@
+body {
+    font-family: "Titillium Web", sans-serif;
+    background-color: #F3EEEA;
+    margin: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: absolute;
+    left: 400px;
+    right: 400px;
+    height: 100%;
+    top: 40px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #776B5D;
+    cursor: pointer;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #776B5D;
+    font-weight: 600;
+    margin-bottom: -0.6rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #B0A695;
+    font-weight: 600;
+    margin-bottom: -0.2rem;
+}
+
+.sidenav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #776B5D;
+    overflow-x: hidden;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidenav img {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    object-fit: cover;
+    margin-top: 1.2rem;
+    zoom: 150%;
+    outline: 2px solid #B0A695;
+}
+
+.sidenav a {
+    display: flex;
+    padding-left: 2.4rem;
+    padding-top: 1rem;
+    text-decoration: none;
+    font-size: 20px;
+    color: #EBE3D5;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.sidenav a p {
+    text-shadow: 2px 1px 2px #0d0c0e;
+}
+
+.sidenav a:hover {
+    color: #776B5D;
+}
+
+.project-presentation {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.project-presentation p{
+    color: #B0A695;    
+    font-weight: 600;
+}
+
+.project-presentation li{
+    color: #B0A695;    
+    font-weight: 600;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+

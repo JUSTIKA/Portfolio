@@ -1,0 +1,155 @@
+body {
+    font-family: "Titillium Web", sans-serif;
+    background-color: #F3EEEA;
+    margin: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: absolute;
+    left: 400px;
+    right: 200px;
+    height: 100%;
+    top: 40px;
+}
+
+.presentation p{
+    color: #B0A695;    
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #776B5D;
+    cursor: pointer;
+    font-weight: 700;
+    margin-bottom: -1.3rem;
+    white-space: nowrap;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #776B5D;
+    font-weight: 600;
+    margin-bottom: -0.6rem;
+}
+
+h3 {
+    font-size: 1rem;
+    color: #B0A695;
+    font-weight: 500;
+}
+
+.sidenav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #776B5D;
+    overflow-x: hidden;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidenav img {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    object-fit: cover;
+    margin-top: 1.2rem;
+    zoom: 150%;
+    outline: 2px solid #B0A695;
+}
+
+.sidenav a {
+    display: flex;
+    padding-left: 2.4rem;
+    padding-top: 1rem;
+    text-decoration: none;
+    font-size: 20px;
+    color: #EBE3D5;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.sidenav a p {
+    text-shadow: 2px 1px 2px #0d0c0e;
+}
+
+.sidenav a:hover {
+    color: #776B5D;
+}
+
+
+.bloc_presentation {
+    display: flex;
+    flex-direction: row;
+}
+
+.header{
+    line-height: 1;
+}
+
+.presentation{
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    text-align: left;
+    padding-left: 12rem;
+    padding-top: 12rem;
+}
+
+.presentation p{
+    margin-bottom: 3rem;
+}
+
+.bloc_presentation > :first-child {
+    flex-basis: 40%;
+}
+
+.bloc_presentation > :nth-child(2) {
+    flex-basis: 60%;
+}
+
+b {
+    color: #776B5D;
+}
+
+.Projects h1{
+    padding-bottom: 2rem;
+}
+
+.Projects h2{
+    cursor: pointer;
+}
+
+.Projects a{
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.Projects a:link {
+    color: #776B5D;
+}
+
+.Projects a:visited {
+    color: #776B5D;
+}
+
+.Projects a:hover{
+    color: #B0A695;
+}
+
+.Projects p{
+    color: #B0A695;    
+    font-weight: 500;
+}

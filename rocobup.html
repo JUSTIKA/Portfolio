@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Joao's Projects</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='robocupstyle.css'>
+</head>
+<body>
+
+  <div class="sidenav">
+    <img src="images/ppside.jpg" alt="Logo" style="width: auto; height: 100px;">
+    <a href="/main.html#Aboutme"><p>About</p></a>
+    <a href="/main.html#Projects"><p>Projects</p></a>
+    <a href="/main.html#CV"><p>Links</p></a>
+  </div> 
+
+  <div class="project-presentation">
+    <h1>RoboCup SSL : VisionBlackOut</h1>
+    <h2>Introduction</h2>
+    <p>
+      As part of my Master's degree in Computer Science at the University of Bordeaux, I developed and documented an autonomous vision system for a football robot in the SSL league, in response to the SSL Vision Blackout challenge.
+      The objective is to develop a robot capable of playing football without the help of external cameras, relying solely on its own sensors and computer vision algorithms. Technologies and methods used are the following:
+
+      <ul>
+        <li>Hardware platform: Using a clone of the Nvidia Jetson board to ensure the computing power needed for real-time image processing.</li>
+        <li>Image processing: Implementing object detection and motion tracking algorithms to locate the ball and other robots on the field.</li>
+        <li>Artificial intelligence: Developing autonomous game strategies, allowing the robot to make real-time decisions and coordinate with its teammates.</li>
+        <li>Development environment: Using GitHub for source code sharing and collaboration.</li>
+      </ul>
+
+      <p>Results:</p>
+
+      <ul>
+        <li>Autonomous robot: Developing a robot capable of playing football without relying on external infrastructure.</li>
+        <li>Mastery of advanced techniques: Acquiring solid skills in computer vision, image processing, and artificial intelligence.</li>
+        <li>Contribution to the RoboCup community: Participating in a recognized challenge in the field of robotics, proposing an innovative solution.</li>
+      </ul>
+    </p>
+
+    <div class="image">
+      <img src="images/live.gif" alt="Live demonstration" style="width: 50%; height: auto;">
+      <p class="caption"><i>Live demonstration of the computer vision</i></p>
+    </div>
+    <p>
+      This project is part of the RoboCup competition, specifically the SSL (Small Size League). The goal is to develop a football robot capable of playing autonomously, without the help of a global vision of the field. Unlike traditional systems that use cameras overlooking the field, our robot is equipped with an onboard camera that provides a limited view of its immediate environment.
+    </p>
+      <h3>Context and Challenges</h3>
+    <p>
+      Relying on specific hardware (field, robots, camera, Nvidia Jetson Nano board), we defined several key steps to successfully complete this project:
+
+      Ball detection and interaction: The robot must locate the ball in its field of vision and perform simple actions like pushing or shooting it.
+      Goal scoring: The robot must identify the opponent's goal and execute precise shots, taking into account the presence of a goalkeeper or not.
+      Autonomous navigation: The robot must be able to move to specific positions on the field using only its onboard camera.
+    </p>
+      <h3>Constraints and Challenges</h3>
+    <p>
+      During this project, we faced several hardware limitations: The limited computing power of the Jetson Nano board and the image quality of the camera required algorithmic optimizations.
+      Complexity of computer vision: Detecting moving objects in a dynamic environment is a complex task, especially due to lighting variations and occlusions.
+      Coordination between the different components of the robot (camera, motors, electronic board) required special attention.
+
+      To meet these challenges, we combined computer vision techniques (object detection, motion tracking) with control algorithms to drive the robot. We also conducted numerous field experiments to refine our models and take into account the specificities of the real environment.
+    </p>
+    <h2>Software Architecture and Technologies</h2>
+    <h3>Summary</h3>
+      <ul>
+        <li>Computer vision: YOLOv8, OpenCV, image processing, object detection</li>
+        <li>Deep learning: PyTorch, convolutional neural networks</li>
+        <li>Robotics: mobile robot, autonomous system, robot control</li>
+        <li>Programming language: Python</li>
+        <li>Hardware: Nvidia Jetson Nano, camera, RSK</li>
+      </ul>
+    <h3>Technologies</h3>
+    <p>
+      Computer vision: The YOLOv8 model was chosen for its ability to detect objects of interest (ball, goal, robots) in real-time in the images captured by the onboard camera. This model was trained on a custom dataset to optimize detection performance in the specific context of the football field.
+    <br>Image annotation: An example of image annotation is illustrated below, showing how objects of interest are marked for training the YOLOv8 model, done with the MAKESENSE.AI tool.
+    </p>
+    <div class="image">
+      <img src="images/annoation_example.png" alt="Example of image annotation" style="width: 30%; height: auto;">
+      <p class="caption"><i>Annotation exemple</i></p>
+
+    </div>
+    <p>
+      <br>Image processing: The images captured by the camera are preprocessed to improve detection quality (noise reduction, contrast enhancement).
+      <br>Robot control: A custom API was developed to interact with the RSK robot. This API allows controlling the robot's movements, managing speed and direction.
+      <br>Programming language: Python was chosen for its simplicity and large community. Libraries such as OpenCV, NumPy, and PyTorch were used for image processing, numerical calculations, and deep learning.
+      <br>Finally, with each image processing done, and our trained AI, we also created interfaces to test our goal-shooting algorithms, using tools like Pygame.
+    </p>
+    <div class="image">
+      <img src="images/goal_decision.png" alt="Goal Decision" style="width: 50%; height: auto;">
+      <p class="caption"><i>Goal decision represented with PyGame</i></p>
+    </div>
+      <h3>Software Architecture</h3>
+    <p>
+      At the heart of the system is a main execution loop that manages the flow of information and triggers actions based on camera data. Image processing is handled by the YOLOv8 model, while robot control is achieved using a custom API. Unit tests were implemented to ensure code quality.
+    </p>
+    <div class="image">
+      <img src="images/flowchart.png" alt="Flowchart" style="width: 50%; height: auto;">
+      <p class="caption"><i>Flowchart representing the information loop</i></p>
+    </div>
+      <h3>Testing Methods</h3>
+    <p>
+      Tests were conducted at different levels:
+    </p>
+
+          <ul>
+            <li>Unit tests: Verifying the proper functioning of individual functions (calculations, data transformations).</li>
+            <li>Integration tests: Validating the interaction between the different components of the system (vision, control, decision).</li>
+            <li>Field tests: Evaluating the robot's performance in real conditions, simulating complex game situations.</li>
+          </ul>
+    <p>
+      The results obtained show that the developed system is capable of performing the assigned tasks with satisfactory reliability. However, improvements are still possible, particularly in terms of object detection accuracy and robot reaction speed.
+    </p>
+    <h2>Results</h2>
+    <h3>Achieved Objectives:</h3>
+    
+    <ul>
+      <li>Shooting a ball: The robot locates the ball, approaches it, and performs a shot.</li>
+      <li>Scoring a goal without a goalkeeper: The robot circles the ball to find the optimal alignment with the goal and shoots.</li>
+      <li>Scoring a goal with a goalkeeper: The robot identifies the free areas of the goal by overlaying the bounding boxes and adjusts its trajectory accordingly.</li>
+    </ul>
+    <p>
+      To achieve these objectives, several methods were used. First, for object detection, we used YOLOv8 to detect the ball, goals, and goalkeeper.
+      We then needed to perform trajectory calculations to enable our robot to shoot. For angle and distance calculations, we used the position and size of the bounding boxes to determine them.
+      The robot's movements were simply done with a custom API to control it.
+      Finally, to determine in which areas of the goal the robot should shoot, we once again used the bounding boxes, this time overlaying them to identify the available areas of the goal.
+      The objectives abandoned during the project included passing the ball from one robot to another. We prioritized the various goal-shooting objectives, and due to issues with other group members who were not active, it seemed more important to present these functionalities.
+    </p>
+    <h3>Demonstration</h3>
+    <div class="image">
+      <video width="60%" height="auto" controls>
+        <source src="images/demo.mp4" type="video/mp4">
+      </video>
+      <p class="caption"><i>Demonstration video of the project</i></p>
+    </div>
+  </div>
+
+</body>
+</html>
