@@ -11,12 +11,12 @@
 
   <div class="sidenav">
     <img src="images/ppside.jpg" alt="Logo" style="width: auto; height: 100px;">
-    <a href="/Portfolio/index.html#Aboutme"><p>About</p></a>
-    <a href="/Portfolio/index.html#Projects"><p>Projects</p></a>
-    <a href="/Portfolio/index.html#CV"><p>Links</p></a>
+    <a href="index.html#Aboutme"><p>About</p></a>
+    <a href="index.html#Projects"><p>Projects</p></a>
+    <a href="index.html#CV"><p>Links</p></a>
   </div> 
 
-  <div class="project-presentation">
+  <d class="project-presentation">
     <h1>FirstBot Project</h1>
     <h2>Introduction</h2>
     <p>
@@ -33,14 +33,18 @@
         <li>Handling some basic kinematics to control the trajectory of the robot ( PyPot ) </li>
       </ul>
     <p>
-      The projet was made in collaboration with the Enseirb MatMeca Engeneering School, whose students helped us by joining our group and working on the project.
+      The projet was made in collaboration with the Enseirb MatMeca Engeneering School, whose students helped 
+      us by joining our group and working on the project.
       We had limited time to work on the project, approximately three days, starting on Tuesday, and presenting our work on Friday afternoon. 
     </p>
     <h2>First Steps</h2>
     <p>
-      The first steps of the project was to distribut the tasks. Since the MatMeca students were more familiar with physics and kinetics, they worked on the robot's odometry and movements in space.
-      On the other hand, me and the other University students worked on the image processing, the robot's frame and the integration of the components.
-      So we started by drawing the frame of the robot on a CAD software named OnShape, a cloud-based software, we later moved on Fusion360 to finish the design.
+      The first steps of the project was to distribut the tasks. Since the MatMeca students were more familiar with 
+      physics and kinetics, they worked on the robot's odometry and movements in space.
+      On the other hand, me and the other University students worked on the image processing, the robot's frame and the 
+      integration of the components.
+      So we started by drawing the frame of the robot on a CAD software named OnShape, a cloud-based software, we later moved 
+      on Fusion360 to finish the design.
       After assembling the robot, the final look was something like this :
     </p>
     <div class="image-bloc">
@@ -55,10 +59,79 @@
     </div>
     <h3>Software and Technologies</h3>
     <p>
-      The langage used for the project was Python, and the main libraries used were OpenCV and PyPot. OpenCV was used to process the images and extract the visual features, and PyPot was used to control the robot's movements.
+      The langage used for the project was Python, and the main libraries used were OpenCV and PyPot. OpenCV was used 
+      to process the images and extract the visual features, and PyPot was used to control the robot's movements.
       And for the raspberry pi, we used the Raspbien OS as recommanded.
     </p>
+    <h2>Image Processing</h2>
+    <p>
+    At this point we needed to find a reliable algorithm to find and follow a line on the floor correctly, and we had two choices.
+    The first one was to make a mask to filter the color we're looking for, make the image black and white to easily work on it, 
+    and use an histogram to measure the intensity of the pixels.
+    The second approach was to use an OpenCV well known algorithm, the border detection, which would look for 
+    the longest continuous line on the image and keep it. We decided to keep the first approach, which probably caused a couple 
+    problems we'll mention later.
+    </p>
+    <div class="image">
+      <img src="images/suiviligne.gif" alt="Line Following GIF" style="width: 420px; height: auto;">
+      <p class="caption"><i>video demonstrating the line-following capabilities</i></p>
+    </div>
+    <p>
+      On the video above, we have a live feed of the camera mounted on the robot as he tries to follow the line. 
+      The robot movements have been adapted with the image processing, we divided the image in six different parts, 
+      and first the robot would move on the direction of the part with the most white pixels from the histogram, 
+      the three different parts on each side would help the robot calibrate how hard and how fast he can turn, each three parts
+      on the left and right side have weights, so if the most pixels are on the left side part in the part the closest to the middle,
+      the robot would turn left lightly.
+    </p>
+    <h2>Problems Encountered</h2>
+    <p>
+      One major problem we encountered during this exercise was caused by one of the lines. The first one we would follow is a red line, which is
+      a pretty straight forward color to detect and follow, but the problem was the second line which was black, on a grey floor, and a lot
+      of lightning variations in the room. Because of these conditions, the histogram probably wasn't the most adequate choice, where the
+      border detection would have been more reliable. We still managed to make it work !
+    </p>
+    <h2>Circuit Results</h2>
+    <div class="image-bloc">
+      <div class="image">
+      <video width="420" height="440" controls>
+        <source src="images/followblack.mp4" type="video/mp4">
+      </video>
+      <p class="caption"><i>Robot following the black line</i></p>
+    </div>
+    <div class="image">
+      <video width="420" height="440" controls>
+        <source src="images/followred.mp4" type="video/mp4">
+      </video>
+      <p class="caption"><i>Robot following the red line</i></p>
+    </div>
+    </div>
+    <h2>Odometry and Results</h2>
+    <p>
+      The MatMeca students worked on the robot's odometry and kinetics, and they managed to make the robot move in space, 
+      and follow a trajectory. The robot was able to move forward, backward, turn left and right, and even make a full 360° turn.
+      The main goals were the following :
+    </p>
+      <ul>
+        <li>Make the robot move in space as we commanded it to</li>
+        <li>Make a map of the circuit when the robot follows the lines</li>
+        <li>Make it move to specific coordinates on the floor</li>
+      </ul>
+      <p>
+        The final results were very satisfying and the robot was able to move in space to specific coordinates, and draw a fairly accurate map of the circuit.
+      </p>
+      <div class="image-bloc">
+        <div class="image">
+          <img src="images/Odometryline.jpg" alt="Odometry Line" style="width: 50%; height: 70%;">
+          <p class="caption"><i>Odometry line mapping</i></p>
+        </div>
+        <div class="image">
+          <video width="420" height="440" controls>
+            <source src="images/odometrydemo.mp4" type="video/mp4">
+          </video>
+          <p class="caption"><i>Odometry demonstration video of the robot moving to (0,1) coordinates and facing 180°</i></p>
+        </div>
+      </div>
   </div>
-
 </body>
 </html>

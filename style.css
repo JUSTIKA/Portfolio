@@ -153,3 +153,20 @@ b {
     color: #B0A695;    
     font-weight: 500;
 }
+
+.Link-bloc{
+    display: flex;
+    flex-direction: column;
+}
+
+.Link-bloc h1{
+    padding-bottom: 2rem;
+}
+
+.link {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
