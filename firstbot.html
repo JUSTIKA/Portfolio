@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Joao's Projects</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='firstbotstyle.css'>
+</head>
+<body>
+
+  <div class="sidenav">
+    <img src="images/ppside.jpg" alt="Logo" style="width: auto; height: 100px;">
+    <a href="/Portfolio/index.html#Aboutme"><p>About</p></a>
+    <a href="/Portfolio/index.html#Projects"><p>Projects</p></a>
+    <a href="/Portfolio/index.html#CV"><p>Links</p></a>
+  </div> 
+
+  <div class="project-presentation">
+    <h1>FirstBot Project</h1>
+    <h2>Introduction</h2>
+    <p>
+      The goal of this project is to build our own first robot, which later should be able to follow a line autonomously.
+      The main components of the robot are the raspberry pi and the camera onboard, which will be used to help us follow the line correctly.
+      <br>
+      We'll set the following goals for this project :
+    </p>
+      <ul>
+        <li>Drawing our own frame using CAD software and tools ( OnShape and Fusion360 )</li>
+        <li>Discovering how on-shelf actuators work</li>
+        <li>Working on an embedded system that is computationally and energetically autonomous</li>
+        <li>Processing images to extract visual features ( OpenCV ) </li>
+        <li>Handling some basic kinematics to control the trajectory of the robot ( PyPot ) </li>
+      </ul>
+    <p>
+      The projet was made in collaboration with the Enseirb MatMeca Engeneering School, whose students helped us by joining our group and working on the project.
+      We had limited time to work on the project, approximately three days, starting on Tuesday, and presenting our work on Friday afternoon. 
+    </p>
+    <h2>First Steps</h2>
+    <p>
+      The first steps of the project was to distribut the tasks. Since the MatMeca students were more familiar with physics and kinetics, they worked on the robot's odometry and movements in space.
+      On the other hand, me and the other University students worked on the image processing, the robot's frame and the integration of the components.
+      So we started by drawing the frame of the robot on a CAD software named OnShape, a cloud-based software, we later moved on Fusion360 to finish the design.
+      After assembling the robot, the final look was something like this :
+    </p>
+    <div class="image-bloc">
+      <div class="image">
+      <img src="images/robot.jpg" alt="First Bot" style="width: 40%; height: 70%;">
+      <p class="caption"><i>Our FirstRobot's final look</i></p>
+      </div>
+      <div class="image">
+      <img src="images/frame.jpg" alt="Robot Frame" style="width: 40%; height: 70%;">
+      <p class="caption"><i>Robot frame design</i></p>
+      </div>
+    </div>
+    <h3>Software and Technologies</h3>
+    <p>
+      The langage used for the project was Python, and the main libraries used were OpenCV and PyPot. OpenCV was used to process the images and extract the visual features, and PyPot was used to control the robot's movements.
+      And for the raspberry pi, we used the Raspbien OS as recommanded.
+    </p>
+  </div>
+
+</body>
+</html>
