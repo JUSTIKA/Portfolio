@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Joao's Projects</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='DPstyle.css'>
+</head>
+<body>
+
+  <div class="sidenav">
+    <img src="images/ppside.jpg" alt="Logo" style="width: auto; height: 100px;">
+    <a href="index.html#Aboutme"><p>About</p></a>
+    <a href="index.html#Projects"><p>Projects</p></a>
+    <a href="index.html#CV"><p>Links</p></a>
+  </div> 
+
+  <div class="project-presentation">
+    <h1>Drone Porteur</h1>
+    <h2>Introduction</h2>
+    <p>
+      Our project is titled 'Carrier Drone,' a project that aims to make the necessary modifications to the DJI Matrice 300 to 
+      allow it to carry smaller drones, such as the DJI Mini 3 or the DJI Tello Edu, underneath it. A rewriting of the project 
+      was done during the initial reports, and can be presented as follows: The objective is to have the Matrice 300 take off 
+      with several smaller drones like the Tello Edu. To achieve this, we need to design a cradle/basket attached to the Matrice 300 
+      on which we can attach the smaller drones. Once the takeoff is complete, we must be able to initiate an in-flight release 
+      of the small drones from the Matrice 300, without interrupting its flight. Once released, the Tello Edu drones begin their 
+      flight, engage in a predefined mission, and start their landing. We can list a couple milestones here :
+    </p>
+      <ul>
+        <li>First is studying the drones APIs in order to effectively control and move the drones.</li>
+        <li>We then need to make the different parts and PCBs to assemble them for the basket and the drone. </li>
+        <li>After designing and check the PCBs are functional, making all everything communicate with eachother was essential.</li>
+        <li>Once all the previous steps were completed, we then could start making functional takeoffs, drone realeses and landings.</li>
+      </ul>
+    <p>
+      This project was part of our final evaluation during the second semester of the Master 2 ASPIC program. This graduation project revolved 
+      around two main courses: MOCPI and PFE. The first course focused on the various aspects of organization within the work industry, including 
+      making code readable and clean, dividing tasks among group members, and so on—essentially, the project's format. The second course, in contrast, 
+      focused on the project's content. For this course, we needed to hold meetings with the client, implement the desired functionalities, and, most 
+      importantly, demonstrate results.
+    </p>
+    <p><a href="images/Rapport_projet_porteur-2.pdf" target="_blank"><b>A FULL REPORT FOR THE PROJECT IS AVAILABLE HERE</b></a></p>
+    <h2>Development</h2>
+      <h3>Electronic Parts</h3>
+      <p>
+        Regarding the equipment needed, this equipment would need to control up to four servo motors controlling the grabbing system on the basket. 
+        Therefore, we decided to use two main electronic components: a Pi Pico RP2040 and a Pi Zero 2W. First, we'd need the Pi Zero 2W to provide a 
+        visual interface for displaying results, offer good support for potential users, and provide effective feedback during operation. This module 
+        will be used for WiFi communication between the carrying basket and the drones loaded onto it. However, we encountered a problem: the Pi Zero 
+        cannot control the grabbing system because it lacks the ability to send PWM signals to control the servos. Consequently, we realized we needed 
+        a second module capable of communicating with them. This module is the Pi Pico RP2040, mounted on the basket. This simple module was sufficient 
+        for controlling the servos, and it communicates with the Pi Zero via Serial.
+      </p>
+      <div class="image-bloc">
+        <div class="image">
+          <img src="images/pcb.png" alt="pcb" style="width: 30rem; height: auto;">
+          <p class="caption"><i>Designed PCB with Pi Zero 2W and Pi Pico RP2040 mounted</i></p>
+        </div>
+        <div class="image">
+          <img src="images/pcb2.png" alt="pcb" style="width: 20rem; height: auto;">
+          <p class="caption"><i>Finished PCB</i></p>
+        </div>
+      </div>
+
+      
+      <p>
+      During the project, we decided to design our own PCBs in order to not have a handmade circuit with wires everywhere mounted on the Matrice300.
+      All the design were made on the software KICAD and the different attemps and designs were ordered on the website JLBPCB. the components are 
+      soldered using 'reflow soldering' techniques. This involves heating the entire PCB according to a temperature curve to control the melting 
+      of the tin and flux. The components are placed in their positions before the tin melts and correctly reposition themselves as the tin melts. 
+      The PCB is then cooled according to a curve to prevent subjecting the tin, PCB, and components to sudden temperature changes. Electronic 
+      components are very sensitive to temperature variations, and failure to adhere to the temperature curves specified by the manufacturers can 
+      lead to unpredictable behavior. The PCB is cleaned, and through-hole technology (THT) components and connectors are soldered. See above an
+      exemple of our PCB once finished.
+      </p>
+
+      <h3>3D Parts Designing</h3>
+      <p>
+        Several different parts had to be designed for the project to function. Over the weeks, we explored various approaches for creating the 
+        carrying basket, the grabbing system, and the drone adapters. All of these designs were created using Fusion 360 software and 3D printed 
+        at home with FDM printers and PLA+ filament.
+      </p>
+
+      <div class="image-bloc">
+        <div class="image">
+          <img src="images/acc drone.png" alt="pcb" style="width: 20rem; height: auto;">
+          <p class="caption"><i>Drone adapter for basket</i></p>
+        </div>
+        <div class="image">
+          <img src="images/acc nacelle.png" alt="pcb" style="width: 25rem; height: auto;">
+          <p class="caption"><i>DJI Tello Edu Mounted on basket</i></p>
+        </div>
+        <div class="image">
+          <img src="images/supp nacelle.png" alt="pcb" style="width: 18rem; height: auto;">
+          <p class="caption"><i>3D Design for the basket support</i></p>
+        </div>
+      </div>
+
+      <h3>Drones implementation</h3>
+      <p>The core of the project is the usage of drones. One drone will have the carrier role and the other one the carried role. </p>
+      <ul>
+        <li>The first drone used was the DJI Matrice300, which will have the carrier role. This drone will be controlled manually by a pilot as
+          it carries the other smaller drone and the carrying basket.
+        </li>
+        <li>The second drone we'll mention is the DJI Mini3, the first carried drone we worked on. After some research and work, we quickly realised
+          that the recent DJI APIs didn't support this drone, and everything available online was in "testing". We still managed to design
+          an Android application mimicing the control joysticks, and retrieve and video stream from the drone. The work on this drone was then
+          dropped.
+        </li>
+        <li>Lastly, the carried drone we kept for the project was the DJI Tello Edu. A much simpler drone to work on, firstly because less recent
+          means more documentation online, and we could work on it with Python, which was impossible with the Mini3. We managed to make available
+          API work, and fully control the Tello Edu.
+        </li>
+      </ul>
+
+      <h2>Results and Demonstration</h2>
+      <p>All the objectives for the project were completed and the client was very satisfied with the work. We managed to fully control the DJI Tello Edu,
+        design all the needed parts and components for the Matrice300 and its carrying basket, as well as making complete demonstrations of the work.
+        See below a demonstration video of the result :
+      </p>
+      <div class="image-bloc">
+        <div class="image">
+          <video width="100%" height="auto" controls>
+            <source src="images/demo_PP_HD.mp4" type="video/mp4">
+          </video>
+          <p class="caption"><i>Functionnal demonstration with interface</i></p>
+        </div>
+        <div class="image">
+          <video width="120%" height="auto" controls>
+            <source src="images/demo2.mp4" type="video/mp4">
+          </video>
+          <p class="caption"><i>Final demonstration with Matrice300</i></p>
+        </div>
+      </div>
+
+
+  </div>
+</body>
+</html>
